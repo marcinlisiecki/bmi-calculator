@@ -39,7 +39,7 @@ const Step1: FunctionComponent<Props> = ({ gender, setGender, handleNextStep }) 
         />
       </div>
 
-      <Button isHidden={gender !== null} onClick={handleNextStep}>
+      <Button isVisible={gender !== null} onClick={handleNextStep}>
         Next
       </Button>
     </div>

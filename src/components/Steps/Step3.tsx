@@ -21,7 +21,10 @@ const Step3: FunctionComponent<Props> = ({ handleNextStep, height, setHeight }) 
         min={100}
         max={250}
       />
-      <Button isHidden={height !== null && height >= 100 && height <= 250} onClick={handleNextStep}>
+      <Button
+        isVisible={height !== null && height >= 100 && height <= 250}
+        onClick={handleNextStep}
+      >
         Next
       </Button>
     </div>

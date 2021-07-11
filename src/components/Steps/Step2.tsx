@@ -21,7 +21,7 @@ const Step2: FunctionComponent<Props> = ({ handleNextStep, weight, setWeight }) 
         min={1}
         max={999}
       />
-      <Button isHidden={weight !== null && weight >= 1 && weight <= 999} onClick={handleNextStep}>
+      <Button isVisible={weight !== null && weight >= 1 && weight <= 999} onClick={handleNextStep}>
         Next
       </Button>
     </div>
