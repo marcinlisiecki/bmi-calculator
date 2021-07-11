@@ -1,17 +1,20 @@
 import React, { FunctionComponent } from "react";
+import StepHeading from "components/StepHeading/StepHeading";
+import Button from "components/Button";
 
 interface Props {
   gender: "male" | "female" | null;
   setGender: (gender: "male" | "female") => void;
+  handleNextStep: () => void;
 }
 
-const Step1: FunctionComponent<Props> = ({ gender, setGender }) => {
+const Step1: FunctionComponent<Props> = ({ gender, setGender, handleNextStep }) => {
   return (
     <div className="flex flex-col items-center">
-      <p className={"mx-auto text-blue-500 font-bold text-center text-lg"}>STEP 1</p>
-      <h1 className={"font-semibold text-2xl"}>
+      <StepHeading index={1}>
         I will ask you some simple questions. First, what's your gender?
-      </h1>
+      </StepHeading>
+
       <div className={"flex justify-center gap-x-20 mt-10"}>
         {/* eslint-disable */}
         <img
@@ -36,13 +39,9 @@ const Step1: FunctionComponent<Props> = ({ gender, setGender }) => {
         />
       </div>
 
-      <button
-        className={`bg-blue-500 px-10 py-2 rounded-full text-white font-medium transform transition hover:scale-[1.02] active:scale-[0.98] mt-20 ${
-          gender ? "opacity-1" : "opacity-0"
-        }`}
-      >
+      <Button isHidden={gender !== null} onClick={handleNextStep}>
         Next
-      </button>
+      </Button>
     </div>
   );
 };
