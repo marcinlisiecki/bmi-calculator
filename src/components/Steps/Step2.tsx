@@ -1,27 +1,27 @@
 import React, { FunctionComponent } from "react";
-import StepHeading from "components/StepHeading/StepHeading";
+import StepHeading from "components/StepHeading";
 import Button from "components/Button";
 
 interface Props {
-  age: number;
-  setAge: (age: number) => void;
+  weight: number;
+  setWeight: (age: number) => void;
   handleNextStep: () => void;
 }
 
-const Step2: FunctionComponent<Props> = ({ age, setAge, handleNextStep }) => {
+const Step2: FunctionComponent<Props> = ({ handleNextStep, weight, setWeight }) => {
   return (
     <div className={"flex flex-col items-center"}>
-      <StepHeading index={2}>How old are you?</StepHeading>
+      <StepHeading index={2}>How much do you weight?</StepHeading>
       <input
-        className="border-b border-black text-center text-4xl mt-10 w-40 mx-auto block outline-none pb-2 focus:border-b-2 transition"
-        placeholder={"18-99"}
-        value={age}
-        onChange={(e) => setAge(parseInt(e.target.value))}
+        className="border-b border-black text-center text-4xl mt-10 w-80 mx-auto block outline-none pb-2 focus:border-b-2 transition"
+        placeholder={"1-999 (kg)"}
+        value={weight}
+        onChange={(e) => setWeight(parseInt(e.target.value))}
         type={"number"}
-        min={18}
-        max={99}
+        min={1}
+        max={999}
       />
-      <Button isHidden={age !== null && age >= 18 && age <= 99} onClick={handleNextStep}>
+      <Button isHidden={weight !== null && weight >= 1 && weight <= 999} onClick={handleNextStep}>
         Next
       </Button>
     </div>

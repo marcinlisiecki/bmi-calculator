@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import Step1 from "components/Steps/Step1";
 import Step2 from "components/Steps/Step2";
-import Step3 from "components/Steps/Step3";
+import Step4 from "components/Steps/Step3";
 
 interface Props {}
 
@@ -15,13 +15,17 @@ const variants = {
 
 const IndexPage: FunctionComponent<Props> = () => {
   const [gender, setGender] = useState<"male" | "female" | null>(null);
-  const [age, setAge] = useState<number>(null);
   const [weight, setWeight] = useState<number>(null);
+  const [height, setHeight] = useState<number>(null);
 
   const [step, setStep] = useState<number>(1);
 
   const handleNextStep = () => {
     setStep((prevState) => prevState + 1);
+  };
+
+  const getBMI = () => {
+    return weight / Math.pow(height, 2);
   };
 
   return (
@@ -33,11 +37,11 @@ const IndexPage: FunctionComponent<Props> = () => {
           </motion.div>
         ) : step === 2 ? (
           <motion.div variants={variants} animate={"enter"} exit={"exit"} initial={"init"} key={2}>
-            <Step2 age={age} setAge={setAge} handleNextStep={handleNextStep} />
+            <Step2 weight={weight} setWeight={setWeight} handleNextStep={handleNextStep} />
           </motion.div>
         ) : step === 3 ? (
           <motion.div variants={variants} animate={"enter"} exit={"exit"} initial={"init"} key={3}>
-            <Step3 weight={weight} setWeight={setWeight} handleNextStep={handleNextStep} />
+            <Step4 height={height} setHeight={setHeight} handleNextStep={handleNextStep} />
           </motion.div>
         ) : null}
       </AnimatePresence>
