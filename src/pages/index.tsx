@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { NextSeo } from "next-seo";
+
+import Head from "components/Head";
 
 import Step1 from "components/Steps/Step1";
 import Step2 from "components/Steps/Step2";
@@ -39,10 +40,7 @@ const IndexPage: FunctionComponent<Props> = () => {
 
   return (
     <>
-      <NextSeo
-        title={"Online BMI calculator"}
-        description={"The BMI calculator will allow you to quickly check if your weight is correct"}
-      />
+      <Head />
       <div
         className={
           "flex justify-center items-center h-screen w-screen overflow-x-hidden relative px-10"
