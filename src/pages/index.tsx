@@ -44,11 +44,13 @@ const IndexPage: FunctionComponent<Props> = () => {
         description={"The BMI calculator will allow you to quickly check if your weight is correct"}
       />
       <div
-        className={"flex justify-center items-center h-screen w-screen overflow-x-hidden relative"}
+        className={
+          "flex justify-center items-center h-screen w-screen overflow-x-hidden relative px-10"
+        }
       >
         <div
           className={
-            "absolute top-6 left-1/2 transform -translate-x-1/2 bg-red-500 w-96 h-1 bg-gray-200 rounded-full"
+            "absolute top-6 left-1/2 transform -translate-x-1/2 bg-red-500 w-[84vw] md:w-96 h-1 bg-gray-200 rounded-full"
           }
         >
           <div

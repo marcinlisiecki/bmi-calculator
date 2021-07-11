@@ -15,7 +15,7 @@ const Step1: FunctionComponent<Props> = ({ gender, setGender, handleNextStep }) 
         I will ask you some simple questions. First, What&apos;s your gender?
       </StepHeading>
 
-      <div className={"flex justify-center gap-x-20 mt-10"}>
+      <div className={"flex justify-center gap-x-4 md:gap-x-20 mt-10"}>
         {/* eslint-disable */}
         <img
           src={require("assets/female.svg")}
