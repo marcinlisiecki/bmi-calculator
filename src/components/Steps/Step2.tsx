@@ -17,6 +17,9 @@ const Step2: FunctionComponent<Props> = ({ age, setAge, handleNextStep }) => {
         placeholder={"18-99"}
         value={age}
         onChange={(e) => setAge(parseInt(e.target.value))}
+        type={"number"}
+        min={18}
+        max={99}
       />
       <Button isHidden={age !== null && age >= 18 && age <= 99} onClick={handleNextStep}>
         Next
