@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { default as NextHead } from "next/Head";
+import { default as NextHead } from "next/head";
 
 interface OwnProps {}
 
