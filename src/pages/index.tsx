@@ -1,10 +1,10 @@
 import React, { FunctionComponent, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { NextSeo } from "next-seo";
 
 import Step1 from "components/Steps/Step1";
 import Step2 from "components/Steps/Step2";
 import Step4 from "components/Steps/Step3";
-import { Result } from "postcss";
 import Results from "components/Steps/Results";
 
 interface Props {}
@@ -38,39 +38,69 @@ const IndexPage: FunctionComponent<Props> = () => {
   };
 
   return (
-    <div
-      className={"flex justify-center items-center h-screen w-screen overflow-x-hidden relative"}
-    >
+    <>
+      <NextSeo
+        title={"Online BMI calculator"}
+        description={"The BMI calculator will allow you to quickly check if your weight is correct"}
+      />
       <div
-        className={
-          "absolute top-6 left-1/2 transform -translate-x-1/2 bg-red-500 w-96 h-1 bg-gray-200 rounded-full"
-        }
+        className={"flex justify-center items-center h-screen w-screen overflow-x-hidden relative"}
       >
         <div
-          className={`bg-blue-500 h-1 rounded-full transition`}
-          style={{ width: (step / 4) * 100 + "%" }}
-        />
+          className={
+            "absolute top-6 left-1/2 transform -translate-x-1/2 bg-red-500 w-96 h-1 bg-gray-200 rounded-full"
+          }
+        >
+          <div
+            className={`bg-blue-500 h-1 rounded-full transition`}
+            style={{ width: (step / 4) * 100 + "%" }}
+          />
+        </div>
+        <AnimatePresence exitBeforeEnter>
+          {step === 1 ? (
+            <motion.div
+              variants={variants}
+              animate={"enter"}
+              exit={"exit"}
+              initial={"init"}
+              key={1}
+            >
+              <Step1 gender={gender} setGender={setGender} handleNextStep={handleNextStep} />
+            </motion.div>
+          ) : step === 2 ? (
+            <motion.div
+              variants={variants}
+              animate={"enter"}
+              exit={"exit"}
+              initial={"init"}
+              key={2}
+            >
+              <Step2 weight={weight} setWeight={setWeight} handleNextStep={handleNextStep} />
+            </motion.div>
+          ) : step === 3 ? (
+            <motion.div
+              variants={variants}
+              animate={"enter"}
+              exit={"exit"}
+              initial={"init"}
+              key={3}
+            >
+              <Step4 height={height} setHeight={setHeight} handleNextStep={handleNextStep} />
+            </motion.div>
+          ) : (
+            <motion.div
+              variants={variants}
+              animate={"enter"}
+              exit={"exit"}
+              initial={"init"}
+              key={4}
+            >
+              <Results bmi={getBMI()} handleReset={handleReset} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-      <AnimatePresence exitBeforeEnter>
-        {step === 1 ? (
-          <motion.div variants={variants} animate={"enter"} exit={"exit"} initial={"init"} key={1}>
-            <Step1 gender={gender} setGender={setGender} handleNextStep={handleNextStep} />
-          </motion.div>
-        ) : step === 2 ? (
-          <motion.div variants={variants} animate={"enter"} exit={"exit"} initial={"init"} key={2}>
-            <Step2 weight={weight} setWeight={setWeight} handleNextStep={handleNextStep} />
-          </motion.div>
-        ) : step === 3 ? (
-          <motion.div variants={variants} animate={"enter"} exit={"exit"} initial={"init"} key={3}>
-            <Step4 height={height} setHeight={setHeight} handleNextStep={handleNextStep} />
-          </motion.div>
-        ) : (
-          <motion.div variants={variants} animate={"enter"} exit={"exit"} initial={"init"} key={4}>
-            <Results bmi={getBMI()} handleReset={handleReset} />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    </>
   );
 };
 

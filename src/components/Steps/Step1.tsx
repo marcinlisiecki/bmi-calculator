@@ -12,7 +12,7 @@ const Step1: FunctionComponent<Props> = ({ gender, setGender, handleNextStep }) 
   return (
     <div className="flex flex-col items-center">
       <StepHeading index={1}>
-        I will ask you some simple questions. First, &apos; your gender?
+        I will ask you some simple questions. First, What&apos;s your gender?
       </StepHeading>
 
       <div className={"flex justify-center gap-x-20 mt-10"}>
