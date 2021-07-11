@@ -17,8 +17,8 @@ const variants = {
 
 const IndexPage: FunctionComponent<Props> = () => {
   const [gender, setGender] = useState<"male" | "female" | null>(null);
-  const [weight, setWeight] = useState<number | string>("");
-  const [height, setHeight] = useState<number | string>("");
+  const [weight, setWeight] = useState<number>(null);
+  const [height, setHeight] = useState<number>(null);
 
   const [step, setStep] = useState<number>(1);
 
