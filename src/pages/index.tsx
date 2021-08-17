@@ -7,6 +7,7 @@ import Step1 from "components/Steps/Step1";
 import Step2 from "components/Steps/Step2";
 import Step4 from "components/Steps/Step3";
 import Results from "components/Steps/Results";
+import Footer from "components/Footer";
 
 interface Props {}
 
@@ -99,6 +100,8 @@ const IndexPage: FunctionComponent<Props> = () => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        <Footer />
       </div>
     </>
   );
